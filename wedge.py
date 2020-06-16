@@ -4,27 +4,26 @@ from PIL import Image, ImageDraw, ImageFont
 CELL_SIZE   = 50
 COLORS      = list( [ int(i / 10 * 255) for i in range(11)] )
 COLOR_NAMES = [ '0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%' ]
-GAMMAS      = [
-                1 / 3.00,       1 / 2.75,       1 / 2.50,       1 / 2.25, 
+GAMMAS      = [ 1 / 3.00,       1 / 2.75,       1 / 2.50,       1 / 2.25, 
                 1 / 2.00,       1 / 1.75,       1 / 1.50,       1 / 1.25,   
                 1.0, 
                 1.25,           1.5,            1.75,           2.0, 
-                2.25,           2.5,            2.75,           3.0 
-            ]
+                2.25,           2.5,            2.75,           3.0 ]
 GAMMA_NAMES = list([ 'y = \n%0.3f' % gamma for gamma in GAMMAS ])
-                
 NUM_ROWS    = len(COLORS) + 2
 NUM_COLS    = len(GAMMAS) + 2 + 1
 WIDTH       = CELL_SIZE * NUM_COLS + 1
 HEIGHT      = CELL_SIZE * NUM_ROWS + 1
 FONT_NAME   = "FreeMono.ttf" # https://github.com/python-pillow/Pillow/blob/master/Tests/fonts/FreeMono.ttf
 FONT_SIZE   = 18
+SAMLL_FONT_SIZE = 12
 
 class App():
     
     def __init__(self, output):
         self.output = output
-        self.font   = ImageFont.truetype(FONT_NAME, size=FONT_SIZE)
+        self.font = ImageFont.truetype(FONT_NAME, size=FONT_SIZE)
+        self.small_font = ImageFont.truetype(FONT_NAME, size=SAMLL_FONT_SIZE)
     
     def draw_frame(self, draw):
         x1 = 0
@@ -47,7 +46,7 @@ class App():
         draw.text(xy, text, font=self.font, fill=shade, align="center")
         xy = [ x1, y1 ]
         draw.text(xy, text, font=self.font, fill=color, align="center")
-
+    
     def draw_hlabel(self, draw, row, color_name):
         x1 = 1 * CELL_SIZE 
         y1 = (row + 1) * CELL_SIZE + CELL_SIZE // 3
@@ -55,11 +54,10 @@ class App():
         draw.text(xy, color_name, font=self.font, fill=0, align="center")
 
     def draw_vlabel(self, draw, col, gamma_name):
-        font = ImageFont.truetype(FONT_NAME, size=12)
         x1 = (col + 2) * CELL_SIZE + CELL_SIZE // 4
         y1 = (NUM_ROWS - 1) * CELL_SIZE 
         xy = [ x1, y1 ]
-        draw.text(xy, gamma_name, font=font, fill=0, align="center")
+        draw.text(xy, gamma_name, font=self.small_font, fill=0, align="center")
         
     def draw_cell(self, draw, col, row, color, gamma):
         gc = self.gamma_correct(color, gamma)
@@ -91,11 +89,12 @@ class App():
         for row, color in enumerate(COLORS):
             for col, gamma in enumerate(GAMMAS):
                 self.draw_cell(draw, col + 2, row + 1, color, gamma)
-        #img.show()
+        img.show()
         img.save(self.output)
     
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
+    parser.add_argument('--show', action="store_true", help='show generated gray wedge')
     parser.add_argument('output', type=str, help='output image')
     args = parser.parse_args()
     App(args.output).run()
