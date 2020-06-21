@@ -76,7 +76,7 @@ class App():
         outer_width = inner_width + int(2.0 * offset)
         outer_height = inner_height + int(2.0 * offset)
         outer_size = (outer_width, outer_height)
-        outer_img = Image.new("L", outer_size, color=255)
+        outer_img = Image.new("L", outer_size, color=0)
         bbox = [ offset, offset, offset + inner_width, offset + inner_height]
         outer_img.paste(img, bbox)
         return outer_img
@@ -89,7 +89,7 @@ class App():
         if width > height: # landscape:
             width_mm, height_mm = LANDSCAPE_SIZES[ self.resize ]
         else: # portrait
-            width_mm, height_mm = LANDSCAPE_SIZES[ self.resize ]
+            width_mm, height_mm = PORTRAIT_SIZE[ self.resize ]
         width_inch, height_inch = width_mm * MM2INCH, height_mm * MM2INCH
         width_px, width_px = int(self.dpi * width_inch), int(self.dpi * height_inch)        
         size = (width_px, width_px)
@@ -107,7 +107,7 @@ class App():
         return img
     
     def unsharp_mask(self, img):
-        return img.filter(ImageFilter.UnsharpMask(radius=2, percent=50, threshold=3))
+        return img.filter(ImageFilter.UnsharpMask(radius=2, percent=50, threshold=2))
         
     def run(self):
         img = Image.open(self.input)
