@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
-		<sidebar/>
-		<contents/>
+		<sidebar v-bind:selected="selected" @sel-nav="handleNav"/>
+		<contents v-bind:selected="selected"/>
 	</div>
 </template>
 
@@ -11,9 +11,17 @@ import Contents from './components/Contents.vue'
 
 export default {
   name: 'App',
+  data: function(){
+    return {
+        selected: 'home'
+    }
+  },
   components: {
-	'sidebar'  : SideBar,
-	'contents' : Contents
+	sidebar  : SideBar,
+	contents : Contents
+  },
+  methods: {
+    handleNav: function(selectedItem) { this.selected = selectedItem; }
   }
 }
 </script>
