@@ -1,5 +1,5 @@
 <template>
-	<div id="sidebar">
+	<div id="navbar">
 		<ul>
 			<li v-on:click="$emit('sel-nav', 'home')" v-bind:class="{ selected: homeSelected }"> Home </li>
 			<li v-on:click="$emit('sel-nav', 'negative')"  v-bind:class="{ selected: negativeSelected }"> Negativo </li>
@@ -19,40 +19,40 @@ export default {
 		exposureSelected: function(){ return this.selected === 'exposure'; },
 		aboutSelected: function() { return this.selected === 'about'; }
 	}
-
 }
 </script>
 
 <style scoped>
-	#sidebar {
-		padding: 24px;
-		width: 25%;
-		float: left;
-		background-color: #003153;
-		border-right: 10px solid #333333;
+	#navbar {
+        flex-basis: 100%;
+        background-color: #003153;
+        /* border-bottom: 10px solid #333333; */
 	}
 
-	#sidebar ul {
-		color: white;
+	#navbar ul {
+		display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        list-style: none;
+        margin: 0px;
+        color: white;
 		font-weight: bold;
-		padding: 1rem;
 	}
 
-	#sidebar li {
+	#navbar li {
 		color: white;
 		background-color: inherit;
 		display: inline-block;
-		padding: 2rem;
-		width: 100%;
 		cursor: pointer;
-
+        padding: 1rem;
+        display: block;
 	}
-	#sidebar li:hover{
+	#navbar li:hover{
 		color: #003153;
 		background-color: white;
 	}
 	
-	#sidebar li.selected{
+	#navbar li.selected{
 		background-color: #530008;
 		color: white;
 	}

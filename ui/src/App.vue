@@ -1,12 +1,14 @@
 <template>
 	<div id="app">
-		<sidebar v-bind:selected="selected" @sel-nav="handleNav"/>
-		<contents v-bind:selected="selected"/>
+        <Header/>
+		<NavBar v-bind:selected="selected" @sel-nav="handleNav"/>
+		<Contents v-bind:selected="selected"/>
 	</div>
 </template>
 
 <script>
-import SideBar from './components/SideBar.vue'
+import Header from './components/Header.vue'
+import NavBar from './components/NavBar.vue'
 import Contents from './components/Contents.vue'
 
 export default {
@@ -17,8 +19,9 @@ export default {
     }
   },
   components: {
-	sidebar  : SideBar,
-	contents : Contents
+	Header,
+    NavBar,
+	Contents
   },
   methods: {
     handleNav: function(selectedItem) { this.selected = selectedItem; }
@@ -28,6 +31,10 @@ export default {
 
 <style>
 #app {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  align-content: stretch;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
