@@ -1,21 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="<%= BASE_URL %>main.css"> 
-    <!-- <link rel="icon" href="<%= BASE_URL %>favicon.ico"> -->
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+        <!-- CSS only -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <!-- JS, Popper.js, and jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+        <link rel="stylesheet" href="<%= BASE_URL %>main.css"> 
+        <!-- <link rel="icon" href="<%= BASE_URL %>favicon.ico"> -->
+        <title><%= htmlWebpackPlugin.options.title %></title>
+
+        <style>
+            body {  padding-top: 3.5rem; } /* Move down content because we have a fixed navbar that is 3.5rem tall */
+
+        </style>
+    </head>
+    
+    <body>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark mb-3">
+            <a class="navbar-brand" href="#">UV Driver</a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"> Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> Negativo </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> Exposição </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> Sobre </a>
+                </li>
+            </ul>
+       </nav>
+            
+        <div class="container mt-3">
+            <div class="jumbotron shadow">
+                <h1 class="display-4"> UV Driver </h1>
+                <p class="lead">
+                    Solução para geração de negativos e controle de exposição UV para processos fotográficos alternativos usando Raspberry Pi
+                </p>
+           </div>
+            <div class="row">
+                <div class="card-deck col-sm-12">
+                        <div class="card shadow-sm">
+                            <img class="card-img-top" src="https://via.placeholder.com/400x200?text=AAAAAAAAAA"/>
+                            <div class="card-body">
+                                <h5 class="card-title"> Negativo </h5>
+                                <p class="card-text"> Criação de Negativos para Processos Fotográficos Alternativos com ajustes defaults para os principais processos existentes</p>
+                            </div>
+                        </div>
+
+                        <div class="card shadow-sm">
+                            <img class="card-img-top" src="https://via.placeholder.com/400x200?text=BBBBBBBBBB"/>
+                            <div class="card-body">
+                                <h5 class="card-title"> Exposição </h5>
+                                <p class="card-text"> Controle de Exposição de Luz UV para exposição calibrada de imagens em processos fotográficos alternativos </p>
+                            </div>
+                        </div>
+
+                        <div class="card shadow-sm">
+                            <img class="card-img-top" src="https://via.placeholder.com/400x200?text=CCCCCCCCCC"/>
+                            <div class="card-body">
+                                <h5 class="card-title"> Sobre </h5>
+                                <p class="card-text"> Saiba um pouco mais sobre a ferramenta, como ajudar e links importantes da comunidade de processos fotográficos alternativos no Brasil </p>
+                            </div>
+                        </div>
+                </div>
+           </div>
+        </div>
+
+        <!-- built files will be auto injected -->
+    </body>
 </html>
