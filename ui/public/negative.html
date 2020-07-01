@@ -19,13 +19,11 @@
 
         <style>
             body {  padding-top: 3.5rem; } /* Move down content because we have a fixed navbar that is 3.5rem tall */
-
         </style>
     </head>
     
     <body>
-        
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark mb-3">
+        <nav class="navbar navbar-expand navbar-dark fixed-top bg-dark mb-3">
             <a class="navbar-brand" href="#">UV Driver</a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
@@ -44,70 +42,84 @@
        </nav>
             
         <div class="container mt-3">
-
             <div class="row mb-3">
-                <div class="col">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFileLang">
-                        <label class="custom-file-label" for="customFileLang">Upload Imagem</label>
-                    </div>
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header"> <h2> Geração de Negativo </h2> </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div class="custom-file mb-3">
+                                    <input type="file" class="custom-file-input" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
+                                <div class="text-center text-danger"> <strong> Error ... </strong> </div>
+                                <input class="form-control mt-3" type="submit" class="form-control">
+                                <div class="text-center text-danger"> <strong> Error ... </strong> </div>
+                            </div>
+                        </div>
+                   </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="card-deck col-sm-12">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title mb-5"> Ajustes de Tonalidade  </h5>
-                            <div class="form-group">
-                                <label for="gammaSlider">Correção de Gamma</label>
-                                <input type="range" class="form-control-range" id="gammaSlider">
+                <div class="col-sm-12"> 
+                    <div class="card-deck">
+                        <div class="card shadow-sm">
+                            <div class="card-header">
+                                <h5 class="card-title"> Ajustes de Tonalidade  </h5>
                             </div>
-                            <div class="form-group">
-                                <label for="whiteSlider">Remapeamento de Branco</label>
-                                <input type="range" class="form-control-range" id="whiteSlider">
-                            </div>
-                            <div class="form-group">
-                                <label for="blackSlider">Remapemanto de Preto</label>
-                                <input type="range" class="form-control-range" id="blackSlider">
-                            </div>
-                            <div class="form-group">
-                                <input type="checkbox" class="form-control-input" id="chkEqualize">
-                                <label for="chkEqualize">Aplicar Equalizção de Histograma</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title mb-5"> Controle de Saída </h5>
-                            <div class="form-group">
-                                <label>Tamanho Negativo</label>
-                                <div class="custom-control custom-radio custom-control-inline w-100">
-                                    <select class="custom-select w-100">
-                                        <option selected>Original</option>
-                                        <option value="a3">A3</option>
-                                        <option value="a4">A4</option>
-                                        <option value="a5">A5</option>
-                                        <option value="a6">A6</option>
-                                    </select>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="gammaSlider">Correção de Gamma - 1.0</label>
+                                    <input type="range" class="form-control-range" id="gammaSlider">
+                                </div>
+                                <div class="form-group">
+                                    <label for="whiteSlider">Remapeamento de Branco - 255</label>
+                                    <input type="range" class="form-control-range" id="whiteSlider">
+                                </div>
+                                <div class="form-group">
+                                    <label for="blackSlider">Remapemanto de Preto - 0</label>
+                                    <input type="range" class="form-control-range" id="blackSlider">
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" class="form-control-input" id="chkEqualize">
+                                    <label for="chkEqualize">Aplicar Equalização de Histograma</label>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="blackSlider">Borda %</label>
-                                <input type="range" class="form-control-range" id="borderSlider">
+                        </div>
+
+                        <div class="card shadow-sm">
+                            <div class="card-header">
+                                <h5 class="card-title"> Controle de Saída </h5>
                             </div>
-                            <div class="form-group">
-                                <label for="dpiSlider">DPI</label>
-                                <input type="range" class="form-control-range" id="borderSlider" value="300">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Tamanho Negativo</label>
+                                    <div class="custom-control custom-radio custom-control-inline w-100">
+                                        <select class="custom-select w-100">
+                                            <option selected>Original</option>
+                                            <option value="a3">A3</option>
+                                            <option value="a4">A4</option>
+                                            <option value="a5">A5</option>
+                                            <option value="a6">A6</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="blackSlider">Borda  - 5%</label>
+                                    <input type="range" class="form-control-range" id="borderSlider">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dpiSlider">DPI - 300</label>
+                                    <input type="range" class="form-control-range" id="borderSlider" value="300">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                  
+                   
+                     </div> 
                </div>
-            </div>
+            </div>  
         </div>
-
         <!-- built files will be auto injected -->
     </body>
 </html>
